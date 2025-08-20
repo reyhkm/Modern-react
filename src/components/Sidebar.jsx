@@ -13,16 +13,16 @@ import {
   InfoIcon,
   SettingsIcon,
   ViewIcon, // Dashboard
-  UserIcon, // New: for Users page
   EditIcon // New: for Forms page
 } from '@chakra-ui/icons';
+import { FaUserAlt } from 'react-icons/fa'; // Import FaUserAlt for user icon
 import { NavLink } from 'react-router-dom';
 
 const Sidebar = ({ isOpen, onClose }) => {
   const navItems = [
     { name: 'Dashboard', icon: ViewIcon, path: '/' },
     { name: 'Analytics', icon: InfoIcon, path: '/analytics' },
-    { name: 'Users', icon: UserIcon, path: '/users' }, // New Nav Item
+    { name: 'Users', icon: FaUserAlt, path: '/users' }, // Use FaUserAlt
     { name: 'Forms', icon: EditIcon, path: '/forms' }, // New Nav Item
     { name: 'Calendar', icon: CalendarIcon, path: '/calendar' },
     { name: 'Messages', icon: ChatIcon, path: '/messages' },
@@ -39,10 +39,9 @@ const Sidebar = ({ isOpen, onClose }) => {
       h="full"
       w={{ base: 'full', md: '250px' }}
       bg="white"
-      _dark={{ bg: 'gray.900' }}
       borderRight="1px"
       borderColor="gray.200"
-      _dark={{ borderColor: 'gray.700' }}
+      _dark={{ bg: 'gray.900', borderColor: 'gray.700' }}
       zIndex="sticky"
       transform={{ base: isOpen ? 'translateX(0)' : 'translateX(-100%)', md: 'translateX(0)' }}
       transition="transform 0.3s ease-in-out"
@@ -73,10 +72,9 @@ const Sidebar = ({ isOpen, onClose }) => {
             colorScheme="brand"
             _activeLink={{
               bg: 'brand.50',
-              _dark: { bg: 'brand.800' },
               color: 'brand.600',
-              _dark: { color: 'brand.100' },
-              fontWeight: 'bold'
+              fontWeight: 'bold',
+              _dark: { bg: 'brand.800', color: 'brand.100' }
             }}
             onClick={onClose} // Close sidebar on mobile after navigation
           >
