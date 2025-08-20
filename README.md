@@ -1,20 +1,22 @@
-# Modern Chakra Dashboard
+# Modern Personal Portfolio
 
-This is a modern and responsive dashboard application built with React, Vite, and Chakra UI.
+A sleek, modern, and clean personal portfolio web application built with React, Vite, and Shadcn UI.
 
 ## Features
 
-*   **React 18**: Modern JavaScript library for building user interfaces.
-*   **Vite**: Fast development build tool.
-*   **Chakra UI**: A simple, modular and accessible component library for React.
-*   **React Router DOM**: Declarative routing for React applications, enabling multi-page navigation.
-*   **Responsive Design**: Adapts to different screen sizes (mobile, tablet, desktop).
-*   **Dark/Light Mode**: Toggle between dark and light themes for enhanced user experience.
-*   **Dashboard Layout**: Includes a sidebar navigation and a main content area with various widgets.
-*   **Modular Structure**: Components and pages are organized into dedicated directories for better maintainability.
-*   **Example Widgets & Pages**: Demonstrates usage of Chakra UI components for stats, progress, activity feeds, and includes placeholder pages for Analytics, Settings, Users, and Forms.
-*   **User Management Page**: A dedicated page to display and manage user data (placeholder).
-*   **Forms Example Page**: A page showcasing various form input types and controls.
+*   **Modern UI**: Utilizes Shadcn UI components for a clean and contemporary look.
+*   **Responsive Design**: Adapts seamlessly to various screen sizes.
+*   **Modular Structure**: Organized components for easy maintenance and scalability.
+*   **Fast Development**: Powered by Vite for a rapid development experience.
+
+## Technologies Used
+
+*   **React**: A JavaScript library for building user interfaces.
+*   **Vite**: A fast frontend build tool.
+*   **TypeScript**: A typed superset of JavaScript.
+*   **Tailwind CSS**: A utility-first CSS framework for rapid styling.
+*   **Shadcn UI**: Reusable components built with Radix UI and Tailwind CSS.
+*   **Lucide React**: A beautiful collection of open-source icons.
 
 ## Getting Started
 
@@ -22,19 +24,19 @@ Follow these steps to get the project up and running on your local machine.
 
 ### Prerequisites
 
-Make sure you have Node.js (LTS version recommended) installed on your system.
+Make sure you have the following installed:
+
+*   Node.js (v18 or higher)
+*   npm or yarn
 
 ### Installation
 
-1.  **Clone the repository (or create the files manually):**
+1.  **Clone the repository:**
 
-    If you're cloning, use:
     ```bash
-    git clone <repository-url>
-    cd modern-chakra-dashboard
+    git clone https://github.com/your-username/modern-personal-portfolio.git
+    cd modern-personal-portfolio
     ```
-
-    If you've downloaded the files, navigate to the project directory.
 
 2.  **Install dependencies:**
 
@@ -44,75 +46,70 @@ Make sure you have Node.js (LTS version recommended) installed on your system.
     yarn install
     ```
 
-### Running the Development Server
+3.  **Run the development server:**
 
-To start the development server, run:
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    ```
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+    The application will be available at `http://localhost:5173` (or another port if 5173 is in use).
 
-This will typically start the application at `http://localhost:5173` (or another available port). The app will automatically reload if you change any of the source files.
+### Adding Shadcn UI Components
 
-### Building for Production
-
-To create a production-ready build of the application, run:
+This project is set up to use Shadcn UI. To add new components, use the Shadcn UI CLI:
 
 ```bash
-npm run build
-# or
-yarn build
+npx shadcn-ui@latest add <component-name>
 ```
 
-This command will compile the application into the `dist` directory, ready for deployment.
-
-### Previewing the Production Build
-
-After building, you can preview the production build locally:
+For example, to add the `button` component:
 
 ```bash
-npm run preview
-# or
-yarn preview
+npx shadcn-ui@latest add button
 ```
 
-This will serve the `dist` directory, allowing you to test the optimized production version.
+This will add the component's code to `src/components/ui/`.
 
 ## Project Structure
 
 ```
-modern-chakra-dashboard/
+modern-personal-portfolio/
 ├── public/
-│   └── vite.svg
 ├── src/
-│   ├── App.jsx         # Main application layout and routing
-│   ├── index.css       # Global styles
-│   ├── main.jsx        # React entry point, ChakraProvider, and BrowserRouter setup
-│   ├── components/     # Reusable UI components
-│   │   ├── ActivityFeed.jsx
-│   │   ├── DashboardCard.jsx
-│   │   ├── Header.jsx
-│   │   ├── ProgressCard.jsx
-│   │   ├── Sidebar.jsx
-│   │   └── StatCard.jsx
-│   └── pages/          # Top-level pages/views
-│       ├── AnalyticsPage.jsx
-│       ├── DashboardPage.jsx
-│       ├── FormsPage.jsx     # New: Example forms and input types
-│       ├── SettingsPage.jsx
-│       └── UsersPage.jsx     # New: User management table
-├── .gitignore          # Specifies intentionally untracked files to ignore
-├── index.html          # HTML entry file
-├── package.json        # Project dependencies and scripts
-├── README.md           # Project documentation
-└── vite.config.js      # Vite configuration
+│   ├── assets/
+│   ├── components/
+│   │   ├── ui/             # Shadcn UI components
+│   │   ├── AboutSection.tsx
+│   │   ├── ContactSection.tsx
+│   │   ├── Footer.tsx
+│   │   ├── HeroSection.tsx
+│   │   ├── Navbar.tsx
+│   │   └── ProjectCard.tsx
+│   │   └── ProjectsSection.tsx
+│   ├── lib/
+│   │   └── utils.ts        # Utility functions (e.g., cn for tailwind-merge)
+│   ├── App.tsx
+│   ├── globals.css
+│   └── main.tsx
+├── .gitignore
+├── components.json         # Shadcn UI configuration
+├── index.html
+├── package.json
+├── postcss.config.js
+├── README.md
+├── tailwind.config.js
+└── tsconfig.json
+└── vite.config.ts
 ```
 
-## Learn More
+## Customization
 
-*   [React Documentation](https://react.dev/)
-*   [Vite Documentation](https://vitejs.dev/)
-*   [Chakra UI Documentation](https://chakra-ui.com/)
-*   [React Router Documentation](https://reactrouter.com/en/main)
+*   **Content**: Modify the text and data in `src/App.tsx` and individual section components.
+*   **Styling**: Adjust `tailwind.config.js` for theme colors, fonts, and other global styles. Use Tailwind CSS classes directly in your components.
+*   **Components**: Add more Shadcn UI components as needed using `npx shadcn-ui@latest add <component-name>`.
+
+## License
+
+This project is open source and available under the MIT License.
