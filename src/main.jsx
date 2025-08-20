@@ -1,12 +1,18 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
-import { ChakraProvider, extendTheme } from '@chakra-ui/react'
-import { BrowserRouter } from 'react-router-dom'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App.jsx';
+import './index.css';
+import { ChakraProvider, extendTheme, ColorModeScript } from '@chakra-ui/react';
+import { BrowserRouter } from 'react-router-dom';
 
 // You can extend the theme to add your custom colors, fonts, etc.
+const config = {
+  initialColorMode: 'light',
+  useSystemColorMode: false,
+};
+
 const theme = extendTheme({
+  config,
   colors: {
     brand: {
       50: '#e6f0ff',
@@ -22,20 +28,22 @@ const theme = extendTheme({
     }
   },
   styles: {
-    global: {
+    global: (props) => ({
       body: {
-        bg: 'gray.50'
+        bg: props.colorMode === 'dark' ? 'gray.800' : 'gray.50',
+        color: props.colorMode === 'dark' ? 'whiteAlpha.900' : 'gray.800'
       }
-    }
+    })
   }
 });
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <ColorModeScript initialColorMode={theme.config.initialColorMode} />
     <ChakraProvider theme={theme}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </ChakraProvider>
   </React.StrictMode>,
-)
+);

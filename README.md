@@ -9,9 +9,12 @@ This is a modern and responsive dashboard application built with React, Vite, an
 *   **Chakra UI**: A simple, modular and accessible component library for React.
 *   **React Router DOM**: Declarative routing for React applications, enabling multi-page navigation.
 *   **Responsive Design**: Adapts to different screen sizes (mobile, tablet, desktop).
+*   **Dark/Light Mode**: Toggle between dark and light themes for enhanced user experience.
 *   **Dashboard Layout**: Includes a sidebar navigation and a main content area with various widgets.
 *   **Modular Structure**: Components and pages are organized into dedicated directories for better maintainability.
-*   **Example Widgets & Pages**: Demonstrates usage of Chakra UI components for stats, progress, activity feeds, and includes placeholder pages for Analytics and Settings.
+*   **Example Widgets & Pages**: Demonstrates usage of Chakra UI components for stats, progress, activity feeds, and includes placeholder pages for Analytics, Settings, Users, and Forms.
+*   **User Management Page**: A dedicated page to display and manage user data (placeholder).
+*   **Forms Example Page**: A page showcasing various form input types and controls.
 
 ## Getting Started
 
@@ -97,7 +100,9 @@ modern-chakra-dashboard/
 │   └── pages/          # Top-level pages/views
 │       ├── AnalyticsPage.jsx
 │       ├── DashboardPage.jsx
-│       └── SettingsPage.jsx
+│       ├── FormsPage.jsx     # New: Example forms and input types
+│       ├── SettingsPage.jsx
+│       └── UsersPage.jsx     # New: User management table
 ├── .gitignore          # Specifies intentionally untracked files to ignore
 ├── index.html          # HTML entry file
 ├── package.json        # Project dependencies and scripts

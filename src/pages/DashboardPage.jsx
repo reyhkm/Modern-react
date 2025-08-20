@@ -8,7 +8,8 @@ import {
   CircularProgressLabel,
   Flex,
   Button,
-  Stack
+  Stack,
+  Progress
 } from '@chakra-ui/react';
 import {
   SettingsIcon,
@@ -33,7 +34,7 @@ const DashboardPage = () => {
     >
       <GridItem colSpan={{ base: 1, lg: 2 }}>
         <DashboardCard title="Sales Overview">
-          <StatGroup>
+          <StatGroup mb="4">
             <StatCard
               label="Today's Sales"
               number="$1,234"
@@ -53,8 +54,8 @@ const DashboardPage = () => {
               type="increase"
             />
           </StatGroup>
-          <Box mt="4" bg="gray.100" h="150px" borderRadius="md" display="flex" alignItems="center" justifyContent="center">
-            <Text color="gray.500">Chart Placeholder (e.g., Line Chart)</Text>
+          <Box mt="4" bg="gray.100" _dark={{ bg: 'gray.700' }} h="180px" borderRadius="md" display="flex" alignItems="center" justifyContent="center">
+            <Text color="gray.500" _dark={{ color: 'gray.400' }}>Interactive Sales Chart (e.g., Line or Bar Chart)</Text>
           </Box>
         </DashboardCard>
       </GridItem>
@@ -80,6 +81,15 @@ const DashboardPage = () => {
 
       <GridItem>
         <ActivityFeed />
+      </GridItem>
+
+      <GridItem>
+        <DashboardCard title="Storage Usage">
+          <Text mb="2">Total Storage Used: <Text as="span" fontWeight="bold">75GB / 100GB</Text></Text>
+          <Progress value={75} size="lg" colorScheme="orange" mb="4" />
+          <Text fontSize="sm" color="gray.500">You are currently using 75% of your allocated storage.</Text>
+          <Button colorScheme="orange" size="sm" mt="4">Upgrade Plan</Button>
+        </DashboardCard>
       </GridItem>
 
       <GridItem>

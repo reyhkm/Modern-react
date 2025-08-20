@@ -10,17 +10,22 @@ import {
   MenuList,
   MenuItem,
   MenuDivider,
-  useBreakpointValue
+  useColorMode,
+  useColorModeValue
 } from '@chakra-ui/react';
 import {
   HamburgerIcon,
   BellIcon,
-  ChevronDownIcon
+  ChevronDownIcon,
+  MoonIcon,
+  SunIcon
 } from '@chakra-ui/icons';
 import { useLocation } from 'react-router-dom';
 
 const Header = ({ onOpen }) => {
   const location = useLocation();
+  const { colorMode, toggleColorMode } = useColorMode();
+
   const getPageTitle = () => {
     switch (location.pathname) {
       case '/':
@@ -29,6 +34,10 @@ const Header = ({ onOpen }) => {
         return 'Analytics & Insights';
       case '/settings':
         return 'Application Settings';
+      case '/users':
+        return 'User Management'; // New title
+      case '/forms':
+        return 'Forms & Inputs'; // New title
       case '/calendar':
         return 'Calendar';
       case '/messages':
@@ -46,9 +55,9 @@ const Header = ({ onOpen }) => {
       align="center"
       justify="space-between"
       p="4"
-      bg="white"
+      bg={useColorModeValue('white', 'gray.900')}
       borderBottom="1px"
-      borderColor="gray.200"
+      borderColor={useColorModeValue('gray.200', 'gray.700')}
       shadow="sm"
       zIndex="sticky"
       position="sticky"
@@ -65,6 +74,13 @@ const Header = ({ onOpen }) => {
         {getPageTitle()}
       </Text>
       <Box>
+        <IconButton
+          aria-label="Toggle color mode"
+          icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+          onClick={toggleColorMode}
+          variant="ghost"
+          mr="2"
+        />
         <IconButton aria-label="Notifications" icon={<BellIcon />} variant="ghost" mr="2" />
         <Menu>
           <MenuButton as={Button} rightIcon={<ChevronDownIcon />} variant="ghost">
